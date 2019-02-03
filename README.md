@@ -25,6 +25,11 @@ graph.addEdge('2', '4');
 graph.addEdge('4', '5');
 ```
 
+Then run a breadth first search like this:
+```typescript
+graph.breadthFirstSearch('1', '3')
+```
+
 ## Todo
 - Option to switch to using an adjacency list.
 - Depth First Search traversal.
