@@ -2,13 +2,15 @@
   "name": "simplegraphjs",
   "version": "1.0.0",
   "description": "A super simple graph for JS using a matrix.",
-  "main": "src/Graph.ts",
-  "types": "./lib/main.d.ts",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "test": "jest --coverage",
+    "prepublish": "npm test"
   },
   "author": "Craig Harley <craigharley2@googlemail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^24.0.0",
     "ts-jest": "^23.10.5",

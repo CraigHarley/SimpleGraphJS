@@ -7,7 +7,7 @@ export interface IGraphMatrix {
 export interface IGraphNode {
     value: string;
     isVisited: boolean;
-    parent?: IGraphNode;
+    parent: IGraphNode|null;
 }
 
 export interface ISearchResult {

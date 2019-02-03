@@ -25,7 +25,7 @@ export class Graph {
         }
 
         const queue: IGraphNode[] = [];
-        const visitedNodes = [];
+        const visitedNodes: string[] = [];
 
         this.getNeighbors(i)
             .forEach((value) =>
@@ -41,14 +41,14 @@ export class Graph {
 
         while (true) {
             const currentNode = queue.shift();
-            currentNode.isVisited = true;
+            currentNode!.isVisited = true;
 
 
-            if (currentNode.value === j) {
-                const path = [];
-                path.push(currentNode);
+            if (currentNode!.value === j) {
+                const path: IGraphNode[] = [];
+                path.push(currentNode!);
 
-                let parentNode = currentNode.parent;
+                let parentNode = currentNode!.parent;
                 while (parentNode) {
                     path.unshift(parentNode);
                     parentNode = parentNode.parent;
@@ -61,20 +61,20 @@ export class Graph {
                 };
             }
 
-            if (isNotAlreadyVisited(currentNode.value)) {
-                const neighbors = this.getNeighbors(currentNode.value)
+            if (isNotAlreadyVisited(currentNode!.value)) {
+                const neighbors = this.getNeighbors(currentNode!.value)
                     .filter(isNotAlreadyVisited);
 
                 queue.unshift(
                     ...neighbors.map((value: string) => ({
                             value,
-                            parent: currentNode,
+                            parent: currentNode!,
                             isVisited: false
                         })
                     )
                 );
             }
-            visitedNodes.push(currentNode.value);
+            visitedNodes.push(currentNode!.value);
 
             if (!currentNode) {
                 break;

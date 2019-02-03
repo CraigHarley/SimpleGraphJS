@@ -1,7 +1,7 @@
-import {Graph} from "./Graph";
+import {Graph} from "../src/Graph";
 
 describe('Graph', () => {
-        let graph;
+        let graph: Graph;
         beforeAll(() => {
             graph = new Graph();
 
