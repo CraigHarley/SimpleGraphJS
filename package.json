@@ -1,0 +1,20 @@
+{
+  "name": "simplegraphjs",
+  "version": "1.0.0",
+  "description": "A super simple graph for JS using a matrix.",
+  "main": "src/Graph.ts",
+  "types": "./lib/main.d.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Craig Harley <craigharley2@googlemail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.0.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.3.1"
+  },
+  "dependencies": {
+    "@types/jest": "^23.3.13"
+  }
+}
