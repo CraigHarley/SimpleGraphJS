@@ -3,7 +3,7 @@
 
 # SimpleGraph.js
 
-A very simple graph implementation for use in JS, using an adjacency matrix.
+A very simple graph implementation for use in JS or Typescript, using an adjacency matrix.
 
 ## Installing
 
