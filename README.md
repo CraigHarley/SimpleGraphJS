@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/CraigHarley/SimpleGraphJS.svg?branch=master)](https://travis-ci.org/CraigHarley/SimpleGraphJS)
+
 # SimpleGraph.js
 
 A very simple graph implementation for use in JS, using an adjacency matrix.
