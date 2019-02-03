@@ -19,6 +19,7 @@
     "prepublish": "npm test"
   },
   "author": "Craig Harley <craigharley2@googlemail.com>",
+  "repository": "https://github.com/CraigHarley/SimpleGraphJS",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.3.13",
