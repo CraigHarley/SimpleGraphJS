@@ -1,9 +1,9 @@
 {
   "name": "simplegraphjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A very simple graph implementation for use in JS, using an adjacency matrix..",
-  "main": "dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/Graph.js",
+  "types": "./dist/Graph.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest --coverage",
