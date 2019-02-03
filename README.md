@@ -30,6 +30,15 @@ Then run a breadth first search like this:
 graph.breadthFirstSearch('1', '3')
 ```
 
+You will then get back an `ISearchResult`, which looks like this:
+```json
+{
+   "path": ["2", "3"],
+   "success": true,
+   "visited": 2
+}
+```
+
 ## Todo
 - Option to switch to using an adjacency list.
 - Depth First Search traversal.
