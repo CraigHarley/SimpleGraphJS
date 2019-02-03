@@ -5,6 +5,8 @@
 
 A very simple graph implementation for use in JS or Typescript, using an adjacency matrix.
 
+Zero dependencies.
+
 ## Installing
 
 Simply:
