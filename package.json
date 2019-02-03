@@ -1,6 +1,6 @@
 {
   "name": "simplegraphjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A super simple graph for JS using a matrix.",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
