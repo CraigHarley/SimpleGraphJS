@@ -4,11 +4,6 @@ describe('Graph', () => {
         let graph: Graph;
         beforeAll(() => {
             graph = new Graph();
-
-            // 1: [2]
-            // 2: [1, 3, 4]
-            // 3: [2]
-            // 4: [2, 5]
             graph.addEdge('1', '2');
             graph.addEdge('2', '3');
             graph.addEdge('2', '4');
