@@ -1,7 +1,7 @@
 {
   "name": "simplegraphjs",
-  "version": "1.0.1",
-  "description": "A super simple graph for JS using a matrix.",
+  "version": "1.0.2",
+  "description": "A very simple graph implementation for use in JS, using an adjacency matrix..",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {

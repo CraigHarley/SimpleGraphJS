@@ -1,4 +1,4 @@
-import {Graph} from "../src/Graph";
+import {Graph} from "../Graph";
 
 describe('Graph', () => {
         let graph: Graph;
