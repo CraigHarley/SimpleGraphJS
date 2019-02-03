@@ -7,7 +7,6 @@ export class Graph {
         if (!this.matrix[i]) {
             this.matrix[i] = {};
         }
-
         this.matrix[i][j] = true;
 
         if (!this.matrix[j]) {
