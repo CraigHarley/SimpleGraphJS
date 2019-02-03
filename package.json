@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "prepublish": "npm test"
+    "prepublish": "jest"
   },
   "author": "Craig Harley <craigharley2@googlemail.com>",
   "repository": "https://github.com/CraigHarley/SimpleGraphJS",
