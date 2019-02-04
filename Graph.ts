@@ -1,33 +1,34 @@
-import {IGraphMatrix, IGraphNode, ISearchResult} from "./types";
+import {IGraphNode, ISearchResult} from "./types";
 
 export class Graph {
-    protected matrix: IGraphMatrix = {};
+    protected matrix: boolean[][] = [];
 
-    public addEdge(i: string, j: string): void {
+    public addEdge(i: i32, j: i32): void {
         if (!this.matrix[i]) {
-            this.matrix[i] = {};
+            this.matrix[i] = [];
         }
         this.matrix[i][j] = true;
 
         if (!this.matrix[j]) {
-            this.matrix[j] = {};
+            this.matrix[j] = [];
         }
         this.matrix[j][i] = true;
     }
 
-    public breadthFirstSearch(i: string, j: string): ISearchResult {
+    public breadthFirstSearch(i: i32, j: i32): ISearchResult {
         if (i === j || !this.matrix[i] || !this.matrix[j]) {
             return {
-                success: false,
-                visited: 0
+                success: i === j,
+                visited: 0,
+                path: null
             };
         }
 
         const queue: IGraphNode[] = [];
-        const visitedNodes: string[] = [];
+        const visitedNodes: i32[] = [];
 
         this.getNeighbors(i)
-            .forEach((value) =>
+            .forEach((value: i32): i32 =>
                 queue.push({
                     value,
                     parent: null,
@@ -36,59 +37,59 @@ export class Graph {
             );
 
 
-        const isNotAlreadyVisited = (value: string) => visitedNodes.indexOf(value) === -1;
+        const isNotAlreadyVisited = (value: i32): boolean => visitedNodes.indexOf(value) === -1;
 
         while (true) {
             const currentNode = queue.shift();
-            currentNode!.isVisited = true;
+            if (currentNode) {
+                currentNode.isVisited = true;
 
+                if (currentNode.value === j) {
+                    const path: IGraphNode[] = [];
+                    path.push(currentNode);
 
-            if (currentNode!.value === j) {
-                const path: IGraphNode[] = [];
-                path.push(currentNode!);
+                    let parentNode = currentNode.parent;
+                    while (parentNode) {
+                        path.unshift(parentNode);
+                        parentNode = parentNode.parent;
+                    }
 
-                let parentNode = currentNode!.parent;
-                while (parentNode) {
-                    path.unshift(parentNode);
-                    parentNode = parentNode.parent;
+                    return {
+                        success: true,
+                        visited: visitedNodes.length,
+                        path: path.map((node: IGraphNode): i32 => node.value)
+                    };
                 }
 
-                return {
-                    path: path.map((node: IGraphNode) => node.value),
-                    success: true,
-                    visited: visitedNodes.length
-                };
-            }
+                if (isNotAlreadyVisited(currentNode.value)) {
+                    const neighbors = this.getNeighbors(currentNode.value)
+                        .filter(isNotAlreadyVisited)
+                        .map((value: i32): IGraphNode => ({
+                                value,
+                                parent: currentNode,
+                                isVisited: false
+                            })
+                        );
 
-            if (isNotAlreadyVisited(currentNode!.value)) {
-                const neighbors = this.getNeighbors(currentNode!.value)
-                    .filter(isNotAlreadyVisited);
-
-                queue.unshift(
-                    ...neighbors.map((value: string) => ({
-                            value,
-                            parent: currentNode!,
-                            isVisited: false
-                        })
-                    )
-                );
-            }
-            visitedNodes.push(currentNode!.value);
-
-            if (!currentNode) {
+                    neighbors.forEach((neighbor: IGraphNode): number => queue.unshift(neighbor));
+                }
+                visitedNodes.push(currentNode.value);
+            } else {
                 break;
             }
         }
 
         return {
             success: false,
-            visited: visitedNodes.length
+            visited: visitedNodes.length,
+            path: null
         };
     }
 
-    protected getNeighbors(i: string): string [] {
+    protected getNeighbors(i: i32): i32 [] {
         if (this.matrix[i]) {
-            return Object.keys(this.matrix[i]);
+            // todo
+            // return this.matrix[i];
         }
 
         return [];

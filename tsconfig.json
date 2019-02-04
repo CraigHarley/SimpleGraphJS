@@ -10,8 +10,10 @@
     "strict": true,
     "esModuleInterop": true
   },
+  "extends": "./node_modules/assemblyscript/std/assembly.json",
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "test"
   ]
 }

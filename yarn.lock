@@ -117,6 +117,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@protobufjs/utf8@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
+
 "@types/jest@^23.3.13":
   version "23.3.13"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.13.tgz#c81484b6f4ca007bb09887ed15ecb3286d58f928"
@@ -239,6 +243,15 @@ asn1@~0.2.3:
   dependencies:
     safer-buffer "~2.1.0"
 
+"assemblyscript@github:AssemblyScript/assemblyscript":
+  version "0.5.0"
+  resolved "https://codeload.github.com/AssemblyScript/assemblyscript/tar.gz/c95c0f5fbe7ae37ff1dd3e4997c675e67eb5a925"
+  dependencies:
+    "@protobufjs/utf8" "^1.1.0"
+    binaryen "63.0.0-nightly.20190107"
+    glob "^7.1.3"
+    long "^4.0.0"
+
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
@@ -324,6 +337,10 @@ bcrypt-pbkdf@^1.0.0:
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
   dependencies:
     tweetnacl "^0.14.3"
+
+binaryen@63.0.0-nightly.20190107:
+  version "63.0.0-nightly.20190107"
+  resolved "https://registry.yarnpkg.com/binaryen/-/binaryen-63.0.0-nightly.20190107.tgz#b7b18f9251d2690908c30f79374761ce8f473ddd"
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -1759,6 +1776,10 @@ lodash@^4.13.1, lodash@^4.17.10:
 log-driver@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/log-driver/-/log-driver-1.2.7.tgz#63b95021f0702fedfa2c9bb0a24e7797d71871d8"
+
+long@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
 
 loose-envify@^1.0.0:
   version "1.4.0"
