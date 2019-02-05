@@ -2,8 +2,16 @@ import {IGraphNode, ISearchResult} from "./types";
 
 export class Graph {
     protected matrix: boolean[][] = [];
+    protected highestVertex: i32 = 0;
 
     public addEdge(i: i32, j: i32): void {
+        if (this.highestVertex < i) {
+            this.highestVertex = i;
+        }
+        if (this.highestVertex < j) {
+            this.highestVertex = j;
+        }
+
         if (!this.matrix[i]) {
             this.matrix[i] = [];
         }
@@ -88,8 +96,15 @@ export class Graph {
 
     protected getNeighbors(i: i32): i32 [] {
         if (this.matrix[i]) {
-            // todo
-            // return this.matrix[i];
+            const output = [];
+
+            // todo this will be horrible for performance...
+            for (let j: i32 = 0; i < this.highestVertex; j++) {
+                if (this.matrix[i][j]) {
+                    output.push(j);
+                }
+            }
+            return output;
         }
 
         return [];

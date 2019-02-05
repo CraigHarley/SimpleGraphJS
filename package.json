@@ -26,6 +26,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.3.13",
+    "@types/mocha": "^5.2.5",
     "assemblyscript": "github:AssemblyScript/assemblyscript",
     "coveralls": "^3.0.2",
     "jest": "^24.0.0",
