@@ -1,7 +1,8 @@
-import {IGraphNode, ISearchResult} from "./types";
+import "allocator/tlsf";
+import {IGraphNode} from "./types";
 
 export class Graph {
-    protected matrix: boolean[][] = [];
+    protected matrix: Array<Array<boolean>> = [];
     protected highestVertex: i32 = 0;
 
     public addEdge(i: i32, j: i32): void {
@@ -23,50 +24,54 @@ export class Graph {
         this.matrix[j][i] = true;
     }
 
-    public breadthFirstSearch(i: i32, j: i32): ISearchResult {
+    public breadthFirstSearch(i: i32, j: i32): boolean {
         if (i === j || !this.matrix[i] || !this.matrix[j]) {
-            return {
-                success: i === j,
-                visited: 0,
-                path: null
-            };
+            // return {
+            //     success: i === j,
+            //     visited: 0,
+            //     path: []
+            // };
+
+            return false;
         }
 
-        const queue: IGraphNode[] = [];
-        const visitedNodes: i32[] = [];
+        const queue: Array<IGraphNode> = [];
+        const visitedNodes: Array<i32> = [];
 
         this.getNeighbors(i)
-            .forEach((value: i32): i32 =>
-                queue.push({
-                    value,
-                    parent: null,
-                    isVisited: false
-                })
+            .forEach((value: i32, index: i32, array: Array<i32>): void => {
+                    queue.push({
+                        value,
+                        // parent: null,
+                        isVisited: false
+                    });
+                }
             );
 
 
         const isNotAlreadyVisited = (value: i32): boolean => visitedNodes.indexOf(value) === -1;
 
         while (true) {
-            const currentNode = queue.shift();
+            const currentNode: IGraphNode = queue.shift();
             if (currentNode) {
                 currentNode.isVisited = true;
 
                 if (currentNode.value === j) {
-                    const path: IGraphNode[] = [];
-                    path.push(currentNode);
+                    // const path: IGraphNode[] = [];
+                    // path.push(currentNode);
 
-                    let parentNode = currentNode.parent;
-                    while (parentNode) {
-                        path.unshift(parentNode);
-                        parentNode = parentNode.parent;
-                    }
+                    // let parentNode = currentNode.parent;
+                    // while (parentNode) {
+                    //     path.unshift(parentNode);
+                    //     parentNode = parentNode.parent;
+                    // }
 
-                    return {
-                        success: true,
-                        visited: visitedNodes.length,
-                        path: path.map((node: IGraphNode): i32 => node.value)
-                    };
+                    // return {
+                    //     success: true,
+                    //     visited: visitedNodes.length,
+                    //     path: path.map((node: IGraphNode): i32 => node.value)
+                    // };
+                    return true;
                 }
 
                 if (isNotAlreadyVisited(currentNode.value)) {
@@ -74,7 +79,7 @@ export class Graph {
                         .filter(isNotAlreadyVisited)
                         .map((value: i32): IGraphNode => ({
                                 value,
-                                parent: currentNode,
+                                // parent: currentNode,
                                 isVisited: false
                             })
                         );
@@ -87,16 +92,17 @@ export class Graph {
             }
         }
 
-        return {
-            success: false,
-            visited: visitedNodes.length,
-            path: null
-        };
+        // return {
+        //     success: false,
+        //     visited: visitedNodes.length,
+        //     path: []
+        // };
+        return false;
     }
 
     protected getNeighbors(i: i32): i32 [] {
         if (this.matrix[i]) {
-            const output = [];
+            const output: Array<i32> = [];
 
             // todo this will be horrible for performance...
             for (let j: i32 = 0; i < this.highestVertex; j++) {
