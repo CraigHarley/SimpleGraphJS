@@ -18,7 +18,7 @@ export class Graph {
     public breadthFirstSearch(i: string, j: string): ISearchResult {
         if (i === j || !this.matrix[i] || !this.matrix[j]) {
             return {
-                success: false,
+                success: i === j,
                 visited: 0
             };
         }
