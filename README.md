@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/CraigHarley/SimpleGraphJS.svg?branch=master)](https://travis-ci.org/CraigHarley/SimpleGraphJS)
 [![Coverage Status](https://coveralls.io/repos/github/CraigHarley/SimpleGraphJS/badge.svg?branch=master)](https://coveralls.io/github/CraigHarley/SimpleGraphJS?branch=master)
 [![npm version](https://badge.fury.io/js/simplegraphjs.svg)](https://badge.fury.io/js/simplegraphjs)
 [![licence](https://img.shields.io/pypi/l/gita.svg?style=flat)](https://github.com/CraigHarley/SimpleGraphJS/blob/master/LICENSE)
